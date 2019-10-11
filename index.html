@@ -18,6 +18,8 @@
         console.log("computer choose brand is: " + computerChoice);
         var computerChoosenHint = "x".repeat(computerChoice.length);
         console.log("this word looks like: " + computerChoosenHint);
+        //var computerChoosenHintArray = [computerChoosenHint];
+        //console.log("computer choosen word array is:" + computerChoosenHintArray);
         wordHintDisplay = computerChoosenHint;
         var wordHintDisplay = document.getElementById("game");
         // console.log("display is: " + wordHintDisplay);
@@ -29,6 +31,17 @@
             var userText = document.getElementById("user");
             userText.textContent = event.key;
             userText.innerHTML = "you typed: " + event.key;
+            var letterGuessPosition = computerChoice.indexOf(event.key);
+            console.log("event.key is: " + event.key);
+            console.log("user guessed letter position is: " + letterGuessPosition);
+            //var userGuessDisplay = computerChoosenHint.replace(/computerChoosenHint[letterGuessPosition]/g,event.key);
+            //console.log(computerChoosenHint[letterGuessPosition]);
+            //console.log(" user guessed correct word display as: " + userGuessDisplay);
+            //if (letterGuessPosition !== -1) {
+            //    computerChoosenHintArray[letterGuessPosition] = event.key;
+            //    console.log(" user guessed correct word is: " + computerChoosenHintArray);
+            //}
+            
         }
         
         for (var i=0; i < computerChoice.length; i++) {
