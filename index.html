@@ -5,12 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 <body>
     
     <p>Guess a car brand!</p>
     <p id=game></p>
     <p id=user></p>
+    <p id=userGuessDisplay></p>
 
     <script>
         var wordArr = ["bmw","honda","benz","toyota","subaru","nissan"];
@@ -24,6 +26,8 @@
         var wordHintDisplay = document.getElementById("game");
         // console.log("display is: " + wordHintDisplay);
         wordHintDisplay.innerHTML = "the word looks like this: "+ computerChoosenHint;
+      
+
         
 
         document.onkeyup = function(event) {
@@ -34,6 +38,27 @@
             var letterGuessPosition = computerChoice.indexOf(event.key);
             console.log("event.key is: " + event.key);
             console.log("user guessed letter position is: " + letterGuessPosition);
+
+            var userGuessDisplayShow = "x".repeat(letterGuessPosition) + event.key + "x".repeat((computerChoice.length-(letterGuessPosition+1)));
+
+            //if (letterGuessPosition === 0) {
+            //    newComputerChoosenHint = event.key + computerChoosenHint.substring(1,(computerChoice.length+1));
+            //    console.log("hint with guess shows: " + newComputerChoosenHint);
+            //    }
+            //    else if (letterGuessPosition === 1) {
+            //        newComputerChoosenHint = "x" + event.key + computerChoosenHint.substring((letterGuessPosition+1),(computerChoice.length+1));
+            //        console.log("hint with guess shows: " + newComputerChoosenHint);
+            //    }
+            //    else {
+            //    newComputerChoosenHint = computerChoosenHint.substring(0,(letterGuessPosition)) + event.key + computerChoosenHint.substring((letterGuessPosition+1),(computerChoice.length+1));
+            //    computerChoosenHint.charAt(letterGuessPosition);
+            //    console.log("hint with guess shows: " + newComputerChoosenHint);
+            //    }
+        
+            //var res = computerChoosenHint.replace(computerChoosenHint.charAt(letterGuessPosition), event.key);
+            //console.log("replace letter is " + res);
+            $("#userGuessDisplay").text("Your guess is: " + userGuessDisplayShow);
+
             //var userGuessDisplay = computerChoosenHint.replace(/computerChoosenHint[letterGuessPosition]/g,event.key);
             //console.log(computerChoosenHint[letterGuessPosition]);
             //console.log(" user guessed correct word display as: " + userGuessDisplay);
@@ -44,9 +69,9 @@
             
         }
         
-        for (var i=0; i < computerChoice.length; i++) {
-                console.log("the brand computer choose has length: " + computerChoice.length);
-        }
+        //for (var i=0; i < computerChoice.length; i++) {
+        //        console.log("the brand computer choose has length: " + computerChoice.length);
+        // }
 
         //for (var i=0; i<wordArr.length;i++) {
          //   var computerChoice = wordArr[Math.floor(Math.random() * wordArr.length)];
