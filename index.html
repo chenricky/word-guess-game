@@ -5,17 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 <body>
-    
-    <h1>Guess a car brand!</h1>
-    <h2>Refresh the browser to start a new game</h2>
-    <p id=game></p>
-    <p id=user></p>
-    <p id=userGuessDisplay></p>
-    <p id=userPlayCounts></p>
-
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+          <h1 class="display-4">Guess a car brand!</h1>
+          <p class="lead">Guess a car brand. Type a letter to start the game</p>
+          <p class="lead">Refresh the browser to start a new game</p>
+          <hr>
+          <p id=game></p>
+          <p id=user></p>
+          <p id=userGuessDisplay></p>
+          <p id=userPlayCounts></p>
+        </div>
+      </div>
     <script>
         var wordArr = ["bmw","honda","benz","toyota","subaru","nissan"];
         var computerChoice = wordArr[Math.floor(Math.random() * wordArr.length)];
@@ -28,7 +33,6 @@
         var wordHintDisplay = document.getElementById("game");
         // console.log("display is: " + wordHintDisplay);
         wordHintDisplay.innerHTML = "the word looks like this: "+ computerChoosenHint;
-       
         var gameCount = 0;
         
         document.onkeyup = function(event) {
@@ -50,7 +54,7 @@
             else {
                 $("#userGuessDisplay").text("The letter you typed is in the brand. and it is the " + (letterGuessPosition+1) + "th letter.");
             }
-
+        }
           
             
 
@@ -80,7 +84,7 @@
             //    console.log(" user guessed correct word is: " + computerChoosenHintArray);
             //}
             
-        }
+        
         
         //for (var i=0; i < computerChoice.length; i++) {
         //        console.log("the brand computer choose has length: " + computerChoice.length);
