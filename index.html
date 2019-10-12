@@ -38,8 +38,15 @@
             var letterGuessPosition = computerChoice.indexOf(event.key);
             console.log("event.key is: " + event.key);
             console.log("user guessed letter position is: " + letterGuessPosition);
+            //var userGuessDisplayShow = "x".repeat(letterGuessPosition) + event.key + "x".repeat((computerChoice.length-(letterGuessPosition+1)));
+            if (letterGuessPosition === -1) {
+                $("#userGuessDisplay").text("The letter you typed is not in the brand");
+            }
+            else {
+                $("#userGuessDisplay").text("The letter you typed is in the brand. and it is the " + (letterGuessPosition+1) + "th letter.");
+            }
 
-            var userGuessDisplayShow = "x".repeat(letterGuessPosition) + event.key + "x".repeat((computerChoice.length-(letterGuessPosition+1)));
+           
 
             //if (letterGuessPosition === 0) {
             //    newComputerChoosenHint = event.key + computerChoosenHint.substring(1,(computerChoice.length+1));
@@ -57,7 +64,7 @@
         
             //var res = computerChoosenHint.replace(computerChoosenHint.charAt(letterGuessPosition), event.key);
             //console.log("replace letter is " + res);
-            $("#userGuessDisplay").text("Your guess is: " + userGuessDisplayShow);
+            //$("#userGuessDisplay").text("Your guess is: " + userGuessDisplayShow);
 
             //var userGuessDisplay = computerChoosenHint.replace(/computerChoosenHint[letterGuessPosition]/g,event.key);
             //console.log(computerChoosenHint[letterGuessPosition]);
